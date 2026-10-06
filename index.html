@@ -1,1 +1,2513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Revisão de Física | Curso Preparatório Professora Samanta</title>
 
+<style>
+:root{
+--azul:#123b68;
+--azul2:#1e6091;
+--ciano:#2aa7c8;
+--ouro:#e0a52b;
+--verde:#238636;
+--vermelho:#c53030;
+--texto:#17212b;
+--cinza:#66717a;
+--fundo:#f4f7fa;
+--branco:#fff;
+--linha:#dce5ec;
+--suave:#eef5fa;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:var(--texto);
+background:var(--fundo);
+line-height:1.6
+}
+
+header{
+background:linear-gradient(135deg,var(--azul),var(--azul2));
+color:white;
+padding:18px 5vw;
+position:relative;
+overflow:hidden
+}
+
+header:after{
+content:"";
+position:absolute;
+width:320px;
+height:320px;
+border:2px solid rgba(255,255,255,.12);
+border-radius:50%;
+right:-120px;
+top:-150px
+}
+
+.marca{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:18px;
+position:relative;
+z-index:2
+}
+
+.logo{
+width:210px;
+height:70px;
+object-fit:contain;
+background:white;
+border-radius:10px;
+padding:5px
+}
+
+.logoFallback{
+width:210px;
+height:70px;
+border-radius:10px;
+background:white;
+color:var(--azul);
+display:none;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-weight:bold;
+font-size:14px;
+line-height:1.2
+}
+
+header h1{
+margin:0;
+font-size:clamp(22px,3vw,34px);
+line-height:1.15
+}
+
+header p{
+margin:7px 0 0;
+opacity:.92
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:50;
+background:white;
+padding:10px 5vw;
+border-bottom:1px solid var(--linha);
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+overflow-x:auto;
+white-space:nowrap
+}
+
+nav a{
+color:var(--azul);
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+margin-right:18px
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:28px 18px 60px
+}
+
+.hero,.card{
+background:white;
+border:1px solid var(--linha);
+border-radius:18px;
+box-shadow:0 7px 22px rgba(20,45,65,.06)
+}
+
+.hero{
+padding:24px;
+margin-bottom:22px
+}
+
+.card{
+padding:18px
+}
+
+h2{color:var(--azul);margin:0 0 14px}
+h3{color:var(--azul2)}
+h4{color:var(--azul)}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:16px
+}
+
+.visual-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:18px
+}
+
+.visual{
+background:white;
+border:1px solid var(--linha);
+border-radius:15px;
+padding:12px;
+overflow:hidden
+}
+
+.visual img{
+width:100%;
+height:220px;
+object-fit:contain;
+background:#fbfdff;
+border-radius:10px;
+display:block
+}
+
+.badge{
+display:inline-block;
+padding:4px 9px;
+border-radius:999px;
+background:#eaf3fb;
+color:var(--azul);
+font-size:12px;
+font-weight:bold
+}
+
+.callout{
+background:var(--suave);
+border-left:5px solid var(--ciano);
+padding:14px 16px;
+border-radius:10px;
+margin:14px 0
+}
+
+.formula{
+background:#eef8fb;
+border-left:5px solid var(--ciano);
+padding:12px 15px;
+border-radius:9px;
+font-weight:bold;
+margin:12px 0
+}
+
+.small{
+color:var(--cinza);
+font-size:13px
+}
+
+.table-wrap{overflow-x:auto}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+margin:12px 0
+}
+
+th,td{
+border:1px solid var(--linha);
+padding:10px;
+text-align:left;
+vertical-align:top
+}
+
+th{
+background:#edf4f9;
+color:var(--azul)
+}
+
+.topico{
+margin-top:28px
+}
+
+.topico-cabecalho{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+flex-wrap:wrap
+}
+
+.question{
+margin:14px 0;
+padding:18px;
+border:1px solid var(--linha);
+border-radius:15px;
+background:white
+}
+
+.question-cabecalho{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:10px
+}
+
+.question h4{
+margin:0 0 12px;
+font-size:16px
+}
+
+.options label{
+display:block;
+padding:10px 12px;
+margin:7px 0;
+border:1px solid #dce5ec;
+border-radius:10px;
+cursor:pointer
+}
+
+.options label:hover{
+background:#f2f8fc
+}
+
+.options input{
+margin-right:8px
+}
+
+.correct{
+background:#effaf1!important;
+border-color:#86d49a!important
+}
+
+.wrong{
+background:#fff2f2!important;
+border-color:#ef9a9a!important
+}
+
+.feedback{
+display:none;
+margin-top:11px;
+padding:12px;
+background:#f7f9fb;
+border-left:4px solid var(--azul2);
+border-radius:10px
+}
+
+.actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin:20px 0
+}
+
+button{
+border:0;
+border-radius:10px;
+padding:12px 16px;
+cursor:pointer;
+font-weight:bold;
+background:var(--azul);
+color:white
+}
+
+button.secundario{
+background:#e8eef3;
+color:var(--azul)
+}
+
+.status{
+position:sticky;
+top:52px;
+z-index:10;
+background:white;
+border:1px solid var(--linha);
+border-radius:14px;
+padding:14px 16px;
+margin-bottom:18px
+}
+
+.status-topo{
+display:flex;
+justify-content:space-between;
+gap:10px;
+font-weight:bold;
+flex-wrap:wrap
+}
+
+.barra{
+height:10px;
+background:#e8edf2;
+border-radius:30px;
+overflow:hidden;
+margin-top:9px
+}
+
+.barra div{
+height:100%;
+width:0;
+background:var(--azul2);
+transition:.25s
+}
+
+.resultado{
+display:none;
+margin-top:26px
+}
+
+.estatisticas{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:14px
+}
+
+.estatistica{
+background:white;
+border:1px solid var(--linha);
+border-radius:15px;
+padding:17px
+}
+
+.numero{
+color:var(--azul);
+font-size:30px;
+font-weight:900
+}
+
+.pizza-area{
+display:flex;
+align-items:center;
+gap:25px;
+flex-wrap:wrap
+}
+
+.pizza{
+width:190px;
+height:190px;
+border-radius:50%;
+background:conic-gradient(var(--verde) 0deg 0deg,var(--vermelho) 0deg 360deg)
+}
+
+.legenda{
+display:grid;
+gap:9px
+}
+
+.linha-topico{
+margin:14px 0
+}
+
+.linha-topico-cabecalho{
+display:flex;
+justify-content:space-between;
+gap:10px;
+margin-bottom:5px
+}
+
+.estudo{
+background:#fffaf0;
+border-left:5px solid var(--ouro);
+padding:14px;
+border-radius:9px;
+margin:10px 0
+}
+
+#gabarito{
+margin-top:30px
+}
+
+#answerKey{
+display:none
+}
+
+.item-gabarito{
+background:white;
+border:1px solid var(--linha);
+border-radius:14px;
+margin:10px 0;
+overflow:hidden
+}
+
+.item-gabarito summary{
+cursor:pointer;
+padding:14px 16px;
+font-weight:bold;
+color:var(--azul);
+background:#fbfdff
+}
+
+.corpo-gabarito{
+padding:14px 16px;
+border-top:1px solid var(--linha)
+}
+
+.fonte{
+font-size:12px;
+color:var(--cinza);
+margin-top:8px
+}
+
+.kpi{
+display:inline-block;
+background:#f0f6fa;
+color:var(--azul);
+padding:7px 11px;
+border-radius:999px;
+margin:4px 5px 4px 0;
+font-size:13px;
+font-weight:bold
+}
+
+footer{
+background:#102f50;
+color:white;
+text-align:center;
+padding:24px 18px
+}
+
+@media(max-width:700px){
+
+.marca{
+flex-direction:column;
+text-align:center
+}
+
+.logo,.logoFallback{
+width:180px
+}
+
+.visual img{
+height:190px
+}
+
+.status{
+top:48px
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="marca">
+
+<img
+class="logo"
+src="Logo preparatorio1.jpeg"
+alt="Logo Curso Preparatório Professora Samanta"
+onerror="
+this.style.display='none';
+document.getElementById('logoFallback').style.display='flex';
+">
+
+<div
+class="logoFallback"
+id="logoFallback">
+
+CURSO PREPARATÓRIO
+<br>
+PROFESSORA SAMANTA
+
+</div>
+
+<div>
+
+<h1>
+Física: revisão visual e diagnóstico
+</h1>
+
+<p>
+Capítulos 13 a 18 —
+Movimentos • Gravitação • Equilíbrio • Hidrostática • Termologia
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+
+<nav>
+
+<a href="#conteudo">Conteúdo</a>
+
+<a href="#revisao">Revisão</a>
+
+<a href="#si">SI</a>
+
+<a href="#imagens">Imagens</a>
+
+<a href="#simulado">Questionário</a>
+
+<a href="#resultado">Desempenho</a>
+
+<a href="#gabarito">Gabarito</a>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     INTRODUÇÃO
+====================================================== -->
+
+<section class="hero">
+
+<h2>
+Como estudar neste material
+</h2>
+
+<p>
+Leia a revisão antes de iniciar o questionário.
+O objetivo é primeiro compreender os conceitos e,
+depois, verificar o domínio por meio das questões.
+</p>
+
+<div>
+
+<span class="kpi">6 conteúdos</span>
+
+<span class="kpi">30 questões</span>
+
+<span class="kpi">4 alternativas</span>
+
+<span class="kpi">diagnóstico automático</span>
+
+</div>
+
+<div class="callout">
+
+<b>Regra do diagnóstico:</b>
+o gabarito comentado permanece escondido enquanto o aluno responde.
+Ao clicar em
+<b>Corrigir e analisar desempenho</b>,
+o resultado e o gabarito são liberados,
+mesmo que algumas questões estejam em branco.
+
+</div>
+
+<div class="formula">
+
+Compreender → visualizar → resolver →
+corrigir → identificar dificuldades → revisar
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTEÚDO
+====================================================== -->
+
+<section id="conteudo">
+
+<h2>
+1. Conteúdo programado
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Cap.</th>
+<th>Conteúdo</th>
+<th>Principais conhecimentos</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>13</td>
+<td>Estudo dos Movimentos</td>
+<td>
+Referencial, posição, distância, deslocamento,
+velocidade média, aceleração e gráficos.
+</td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Gravitação Universal</td>
+<td>
+Lei da gravitação, peso, gravidade,
+distância entre massas e órbitas.
+</td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Equilíbrio de um ponto material e de corpo extenso</td>
+<td>
+Força resultante, equilíbrio estático,
+torque e braço de alavanca.
+</td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Introdução à Hidrostática</td>
+<td>
+Sistema Internacional, densidade,
+pressão e pressão hidrostática.
+</td>
+</tr>
+
+<tr>
+<td>17</td>
+<td>Hidrostática</td>
+<td>
+Pascal, Arquimedes, empuxo,
+flutuação e prensa hidráulica.
+</td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>Termologia</td>
+<td>
+Temperatura, escalas, energia interna
+e calor latente.
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     REVISÃO
+====================================================== -->
+
+<section id="revisao" style="margin-top:28px">
+
+<h2>
+2. Revisão dos conteúdos
+</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+Capítulo 13 — Estudo dos Movimentos
+</h3>
+
+<p>
+Para descrever um movimento precisamos de um
+<b>referencial</b>.
+</p>
+
+<div class="formula">
+Δs = s<sub>f</sub> − s<sub>i</sub>
+</div>
+
+<p>
+O deslocamento compara a posição final com a posição inicial.
+A distância percorrida considera o caminho realizado.
+</p>
+
+<div class="formula">
+v<sub>m</sub> = Δs / Δt
+<br><br>
+a<sub>m</sub> = Δv / Δt
+</div>
+
+<p>
+No gráfico velocidade × tempo, a área algébrica corresponde
+ao deslocamento.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Capítulo 14 — Gravitação Universal
+</h3>
+
+<p>
+Dois corpos com massa exercem atração gravitacional entre si.
+</p>
+
+<div class="formula">
+F = G · m<sub>1</sub> · m<sub>2</sub> / r²
+</div>
+
+<ul>
+
+<li>
+Maior massa → maior força gravitacional.
+</li>
+
+<li>
+Maior distância → menor força.
+</li>
+
+<li>
+Dobrar a distância → força fica 1/4.
+</li>
+
+</ul>
+
+<div class="formula">
+P = m · g
+</div>
+
+<p>
+Em uma órbita circular, a gravidade pode atuar como força centrípeta.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Capítulo 15 — Equilíbrio
+</h3>
+
+<p>
+Para equilíbrio translacional:
+</p>
+
+<div class="formula">
+ΣF = 0
+</div>
+
+<p>
+Para equilíbrio estático de corpo extenso:
+</p>
+
+<div class="formula">
+ΣF = 0
+<br>
+Στ = 0
+</div>
+
+<p>
+O torque é:
+</p>
+
+<div class="formula">
+τ = F · d<sub>⊥</sub>
+</div>
+
+<p>
+Quanto maior o braço perpendicular, maior o efeito de rotação
+para uma mesma força.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Capítulo 16 — Introdução à Hidrostática
+</h3>
+
+<p>
+A densidade relaciona massa e volume:
+</p>
+
+<div class="formula">
+ρ = m / V
+</div>
+
+<p>
+A pressão relaciona força perpendicular e área:
+</p>
+
+<div class="formula">
+p = F / A
+</div>
+
+<p>
+A pressão hidrostática depende da profundidade:
+</p>
+
+<div class="formula">
+p<sub>h</sub> = ρgh
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Capítulo 17 — Hidrostática
+</h3>
+
+<h4>
+Princípio de Pascal
+</h4>
+
+<p>
+Uma variação de pressão aplicada a um fluido confinado
+é transmitida ao fluido.
+</p>
+
+<div class="formula">
+F<sub>1</sub>/A<sub>1</sub>
+=
+F<sub>2</sub>/A<sub>2</sub>
+</div>
+
+<h4>
+Princípio de Arquimedes
+</h4>
+
+<p>
+O empuxo corresponde ao peso do fluido deslocado.
+</p>
+
+<div class="formula">
+E = ρ<sub>fluido</sub> · g · V<sub>deslocado</sub>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Capítulo 18 — Termologia
+</h3>
+
+<p>
+A temperatura está relacionada ao grau de agitação térmica
+das partículas.
+</p>
+
+<div class="formula">
+K ≈ °C + 273
+</div>
+
+<p>
+Durante o aquecimento sem mudança de estado,
+a temperatura pode aumentar.
+</p>
+
+<p>
+Durante uma mudança de estado, a energia transferida pode
+ser utilizada como calor latente sem alteração da temperatura,
+em condições ideais.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SISTEMA INTERNACIONAL
+====================================================== -->
+
+<section id="si" style="margin-top:28px">
+
+<div class="card">
+
+<h2>
+3. Sistema Internacional de Unidades (SI)
+</h2>
+
+<p>
+Antes de responder às questões, é importante conhecer as unidades
+usadas na Física.
+O Sistema Internacional de Unidades organiza as unidades utilizadas
+para expressar grandezas físicas.
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Grandeza</th>
+<th>Unidade</th>
+<th>Símbolo</th>
+<th>Uso</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Comprimento</td>
+<td>metro</td>
+<td>m</td>
+<td>distância, posição e braço de alavanca</td>
+</tr>
+
+<tr>
+<td>Massa</td>
+<td>quilograma</td>
+<td>kg</td>
+<td>massa</td>
+</tr>
+
+<tr>
+<td>Tempo</td>
+<td>segundo</td>
+<td>s</td>
+<td>tempo</td>
+</tr>
+
+<tr>
+<td>Temperatura termodinâmica</td>
+<td>kelvin</td>
+<td>K</td>
+<td>temperatura</td>
+</tr>
+
+<tr>
+<td>Força</td>
+<td>newton</td>
+<td>N</td>
+<td>força, peso e empuxo</td>
+</tr>
+
+<tr>
+<td>Pressão</td>
+<td>pascal</td>
+<td>Pa</td>
+<td>pressão</td>
+</tr>
+
+<tr>
+<td>Energia</td>
+<td>joule</td>
+<td>J</td>
+<td>energia</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="callout">
+
+<b>Relações importantes:</b>
+
+<br><br>
+
+1 N = 1 kg · m/s²
+
+<br>
+
+1 Pa = 1 N/m²
+
+<br>
+
+1 J = 1 N · m
+
+</div>
+
+
+<p class="small">
+
+A unidade de força, newton, e a unidade de pressão,
+pascal, são unidades derivadas do SI.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     IMAGENS
+====================================================== -->
+
+<section id="imagens" style="margin-top:28px">
+
+<h2>
+4. Imagens e infográficos de apoio
+</h2>
+
+<p>
+
+As imagens abaixo são utilizadas como apoio pedagógico.
+As fontes ficam identificadas junto a cada recurso.
+
+</p>
+
+<div class="visual-grid" id="visualGrid"></div>
+
+</section>
+
+
+<!-- =====================================================
+     QUESTIONÁRIO
+====================================================== -->
+
+<section id="simulado" style="margin-top:30px">
+
+<h2>
+5. Questionário diagnóstico — 30 questões
+</h2>
+
+<p>
+
+Responda primeiro sem consultar o gabarito.
+Você pode finalizar mesmo deixando algumas questões sem resposta.
+
+</p>
+
+
+<div class="status">
+
+<div class="status-topo">
+
+<span id="respondidas">
+0 de 30 respondidas
+</span>
+
+<span id="percentualRespondido">
+0%
+</span>
+
+</div>
+
+<div class="barra">
+
+<div id="barraProgresso"></div>
+
+</div>
+
+</div>
+
+
+<div id="quiz"></div>
+
+
+<div class="actions">
+
+<button onclick="corrigir()">
+✓ Corrigir e analisar desempenho
+</button>
+
+<button
+class="secundario"
+onclick="limpar()">
+
+↺ Limpar respostas
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULTADO
+====================================================== -->
+
+<section
+id="resultado"
+class="resultado">
+
+<h2>
+6. Diagnóstico automático
+</h2>
+
+
+<div class="estatisticas">
+
+<div class="estatistica">
+
+<div class="small">
+Acertos
+</div>
+
+<div
+class="numero"
+id="score">
+0/30
+</div>
+
+</div>
+
+
+<div class="estatistica">
+
+<div class="small">
+Percentual
+</div>
+
+<div
+class="numero"
+id="percent">
+0%
+</div>
+
+</div>
+
+
+<div class="estatistica">
+
+<div class="small">
+Respondidas
+</div>
+
+<div
+class="numero"
+id="answered">
+0/30
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="card"
+style="margin-top:16px">
+
+<h3>
+Gráfico de acertos
+</h3>
+
+<div class="pizza-area">
+
+<div
+class="pizza"
+id="pizza">
+</div>
+
+<div class="legenda">
+
+<div>
+<b style="color:var(--verde)">
+Acertos:
+</b>
+
+<span id="acertosLegenda">
+0
+</span>
+
+</div>
+
+<div>
+
+<b style="color:var(--vermelho)">
+Erros:
+</b>
+
+<span id="errosLegenda">
+0
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="small">
+
+As questões deixadas em branco entram como erros no
+percentual final do diagnóstico.
+
+</p>
+
+</div>
+
+
+<div
+class="card"
+style="margin-top:16px">
+
+<h3>
+Desempenho por conteúdo
+</h3>
+
+<div id="desempenhoConteudo"></div>
+
+</div>
+
+
+<div
+class="card"
+style="margin-top:16px">
+
+<h3>
+Facilidades, dificuldades e estudo orientado
+</h3>
+
+<div id="diagnostico"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     GABARITO
+====================================================== -->
+
+<section id="gabarito">
+
+<h2>
+7. Gabarito comentado
+</h2>
+
+<div
+id="bloqueioGabarito"
+class="callout">
+
+🔒 <b>Gabarito bloqueado.</b>
+
+<br><br>
+
+O gabarito será divulgado somente após o aluno clicar
+em <b>“Corrigir e analisar desempenho”</b>.
+
+</div>
+
+
+<div id="answerKey"></div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<strong>
+Curso Preparatório Professora Samanta
+</strong>
+
+<br>
+
+Revisão de Física — Capítulos 13 a 18
+
+<br><br>
+
+<span style="opacity:.8">
+
+Imagens de apoio com identificação das respectivas fontes.
+
+</span>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   BANCO DE QUESTÕES
+===================================================== */
+
+const questoes=[
+
+[1,"Estudo dos Movimentos","Fácil",
+"Uma pessoa caminha 300 m para leste e depois 100 m para oeste. O deslocamento resultante é:",
+["200 m para leste","400 m para leste","200 m para oeste","100 m para leste"],
+0,
+"O deslocamento considera a diferença entre a posição final e a posição inicial. Portanto, 300 − 100 = 200 m para leste."
+],
+
+[2,"Estudo dos Movimentos","Fácil",
+"Um carro percorre 120 km em 2 h. Qual é sua velocidade média?",
+["40 km/h","60 km/h","80 km/h","120 km/h"],
+1,
+"Usamos vₘ = Δs/Δt. Assim, vₘ = 120/2 = 60 km/h."
+],
+
+[3,"Estudo dos Movimentos","Médio",
+"A posição de um móvel é dada por s(t) = 10 + 5t, no SI. Sua velocidade é:",
+["5 m/s","10 m/s","15 m/s","5 m"],
+0,
+"Comparando com s = s₀ + vt, o coeficiente de t representa a velocidade. Logo, v = 5 m/s."
+],
+
+[4,"Estudo dos Movimentos","Médio",
+"Um móvel aumenta sua velocidade de 10 m/s para 30 m/s em 5 s. A aceleração média é:",
+["2 m/s²","4 m/s²","5 m/s²","8 m/s²"],
+1,
+"aₘ = Δv/Δt = (30 − 10)/5 = 4 m/s²."
+],
+
+[5,"Estudo dos Movimentos","Difícil",
+"Em um gráfico velocidade × tempo, a área algébrica sob a curva entre dois instantes representa:",
+["a aceleração média","a força resultante","o deslocamento","a posição inicial"],
+2,
+"A área sob o gráfico v × t representa o deslocamento. Quando a velocidade é negativa, a contribuição da área também é negativa."
+],
+
+[6,"Gravitação Universal","Fácil",
+"Segundo a lei da gravitação universal, a força entre duas massas é:",
+[
+"diretamente proporcional à soma das massas e à distância",
+"diretamente proporcional ao produto das massas e inversamente proporcional ao quadrado da distância",
+"proporcional apenas à distância",
+"proporcional ao quadrado da distância"
+],
+1,
+"A lei é F = G·m₁·m₂/r². A força cresce com o produto das massas e diminui com o quadrado da distância."
+],
+
+[7,"Gravitação Universal","Fácil",
+"Se a distância entre dois corpos for duplicada, mantendo as massas constantes, a força gravitacional passa a ser:",
+["2 vezes maior","4 vezes maior","1/2 da inicial","1/4 da inicial"],
+3,
+"Como F é inversamente proporcional a r², ao dobrar a distância a força passa a valer 1/4 da original."
+],
+
+[8,"Gravitação Universal","Médio",
+"O peso de um corpo de massa 10 kg, em um local onde g = 10 m/s², é:",
+["10 N","20 N","100 N","1000 N"],
+2,
+"P = m·g = 10·10 = 100 N."
+],
+
+[9,"Gravitação Universal","Médio",
+"Um satélite em órbita circular ao redor da Terra permanece em órbita porque:",
+["não sofre gravidade","a gravidade atua como força centrípeta","sua massa é zero","não possui velocidade"],
+1,
+"A gravidade fornece a força centrípeta necessária para manter o satélite em trajetória orbital."
+],
+
+[10,"Gravitação Universal","Difícil",
+"Dois corpos exercem forças gravitacionais de mesma intensidade um sobre o outro. Isso ocorre porque:",
+[
+"apenas o corpo maior exerce força",
+"a força é sempre maior no corpo menor",
+"as forças de interação formam um par de ação e reação",
+"a gravidade depende apenas da massa maior"
+],
+2,
+"Pela 3ª lei de Newton, as forças de interação têm mesma intensidade e sentidos opostos."
+],
+
+[11,"Equilíbrio","Fácil",
+"Um corpo está em equilíbrio translacional quando:",
+[
+"sua velocidade é necessariamente zero",
+"a força resultante é nula",
+"atua apenas uma força",
+"seu peso é nulo"
+],
+1,
+"Equilíbrio translacional significa ΣF = 0. O corpo pode estar parado ou em movimento retilíneo uniforme."
+],
+
+[12,"Equilíbrio","Fácil",
+"Para que um corpo extenso esteja em equilíbrio estático, além da força resultante nula, é necessário que:",
+[
+"a massa seja nula",
+"o torque resultante seja nulo",
+"a velocidade seja máxima",
+"o peso seja maior que todas as forças"
+],
+1,
+"No equilíbrio estático de um corpo extenso, devemos ter simultaneamente ΣF = 0 e Στ = 0."
+],
+
+[13,"Equilíbrio","Médio",
+"Uma força de 20 N aplicada perpendicularmente a 2 m do eixo de rotação produz torque de:",
+["10 N·m","20 N·m","40 N·m","80 N·m"],
+2,
+"τ = F·d⊥ = 20·2 = 40 N·m."
+],
+
+[14,"Equilíbrio","Médio",
+"Uma gangorra em equilíbrio tem uma massa de 30 kg a 2 m do apoio. Para equilibrá-la, uma massa de 20 kg deve ficar a:",
+["1 m","2 m","3 m","4 m"],
+2,
+"Igualamos os momentos: 30·g·2 = 20·g·d. Cancelando g, temos 60 = 20d. Portanto, d = 3 m."
+],
+
+[15,"Equilíbrio","Difícil",
+"Se uma força passa exatamente pelo eixo de rotação de um corpo, seu torque em relação a esse eixo é:",
+["máximo","nulo","igual ao peso","sempre negativo"],
+1,
+"O braço de alavanca é zero. Logo, τ = F·0 = 0."
+],
+
+[16,"Introdução à Hidrostática","Fácil",
+"A densidade de um material é definida por:",
+["ρ = m/V","ρ = V/m","ρ = m·V","ρ = m + V"],
+0,
+"A densidade é a razão entre massa e volume: ρ = m/V."
+],
+
+[17,"Introdução à Hidrostática","Fácil",
+"Qual das alternativas apresenta corretamente uma unidade usada em Hidrostática no Sistema Internacional?",
+[
+"Pascal (Pa), equivalente a N/m²",
+"Quilograma (kg), usado como unidade de pressão",
+"Kelvin (K), usado como unidade de área",
+"Metro (m), usado como unidade de massa"
+],
+0,
+"O pascal é a unidade de pressão no SI. 1 Pa = 1 N/m². O newton é a unidade de força."
+],
+
+[18,"Introdução à Hidrostática","Médio",
+"Uma força de 100 N atua perpendicularmente sobre uma área de 0,5 m². A pressão exercida é:",
+["50 Pa","100 Pa","200 Pa","500 Pa"],
+2,
+"p = F/A = 100/0,5 = 200 Pa."
+],
+
+[19,"Introdução à Hidrostática","Médio",
+"Em um líquido em repouso, mantendo a densidade e a gravidade constantes, a pressão hidrostática aumenta quando:",
+["a profundidade aumenta","a profundidade diminui","a densidade é zero","a gravidade é zero"],
+0,
+"Como pₕ = ρgh, aumentando h aumenta a pressão hidrostática."
+],
+
+[20,"Introdução à Hidrostática","Difícil",
+"Duas substâncias possuem a mesma massa, mas volumes diferentes. A substância com menor volume apresenta:",
+["menor densidade","maior densidade","densidade igual","massa específica nula"],
+1,
+"Como ρ = m/V, para a mesma massa, um menor volume produz maior densidade."
+],
+
+[21,"Hidrostática","Fácil",
+"A pressão hidrostática exercida por um líquido depende diretamente de:",
+[
+"profundidade, densidade e gravidade",
+"apenas da área do recipiente",
+"apenas do formato do recipiente",
+"massa do recipiente"
+],
+0,
+"A relação pₕ = ρgh mostra dependência direta com densidade, gravidade e profundidade."
+],
+
+[22,"Hidrostática","Fácil",
+"O princípio de Pascal afirma que uma variação de pressão aplicada a um fluido confinado:",
+[
+"desaparece imediatamente",
+"é transmitida ao fluido",
+"atua somente para baixo",
+"depende do formato do recipiente"
+],
+1,
+"Uma variação de pressão aplicada a um fluido confinado é transmitida ao fluido."
+],
+
+[23,"Hidrostática","Médio",
+"Um objeto totalmente imerso em água recebe um empuxo igual:",
+[
+"ao peso do objeto",
+"ao peso da água deslocada",
+"à massa do objeto",
+"à pressão atmosférica"
+],
+1,
+"Pelo princípio de Arquimedes, o empuxo é igual ao peso do fluido deslocado."
+],
+
+[24,"Hidrostática","Médio",
+"Um corpo flutua em equilíbrio na água quando:",
+[
+"seu peso é maior que o empuxo",
+"o empuxo é nulo",
+"o empuxo tem a mesma intensidade do peso",
+"sua densidade é sempre zero"
+],
+2,
+"Na flutuação em equilíbrio, a força resultante vertical é nula. Portanto, E = P."
+],
+
+[25,"Hidrostática","Difícil",
+"Uma prensa hidráulica possui êmbolo menor de área 0,02 m² e maior de área 0,20 m². Aplicando 100 N no menor, a força ideal no maior é:",
+["10 N","100 N","500 N","1000 N"],
+3,
+"Pelo princípio de Pascal, F₁/A₁ = F₂/A₂. Então F₂ = 100·(0,20/0,02) = 1000 N."
+],
+
+[26,"Termologia","Fácil",
+"Em uma abordagem microscópica, a temperatura de um corpo está relacionada principalmente:",
+[
+"à energia cinética média de suas partículas",
+"ao peso do corpo",
+"à massa total apenas",
+"ao volume apenas"
+],
+0,
+"A temperatura está relacionada ao grau de agitação térmica, associado à energia cinética média das partículas."
+],
+
+[27,"Termologia","Fácil",
+"Qual é a unidade de temperatura termodinâmica no Sistema Internacional?",
+[
+"grau Celsius (°C)",
+"kelvin (K)",
+"grau Fahrenheit (°F)",
+"joule (J)"
+],
+1,
+"No SI, a unidade de temperatura termodinâmica é o kelvin (K)."
+],
+
+[28,"Termologia","Médio",
+"Uma temperatura de 27 °C corresponde aproximadamente a:",
+["246 K","273 K","300 K","327 K"],
+2,
+"Usando K ≈ °C + 273, temos 27 + 273 = 300 K."
+],
+
+[29,"Termologia","Médio",
+"Um bloco recebe energia térmica e não ocorre mudança de estado. Em uma situação em que essa energia aumenta a agitação térmica das partículas, espera-se que sua temperatura:",
+[
+"aumente",
+"diminua obrigatoriamente",
+"permaneça zero",
+"torne-se independente da energia recebida"
+],
+0,
+"Quando a energia fornecida aumenta a energia cinética média das partículas, a temperatura aumenta."
+],
+
+[30,"Termologia","Difícil",
+"Durante a fusão de uma substância pura, sob pressão constante e nas condições ideais, a temperatura permanece constante enquanto a substância:",
+[
+"não recebe energia",
+"recebe calor latente",
+"perde toda a massa",
+"aumenta necessariamente sua densidade"
+],
+1,
+"Durante a mudança de estado, a energia transferida é usada na transformação de fase. Essa energia é chamada calor latente."
+]
+
+];
+
+
+/* =====================================================
+   IMAGENS
+===================================================== */
+
+const imagens=[
+
+{
+topico:"Movimentos",
+titulo:"Gráfico velocidade × tempo",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/Velocity-time_graph_example.png",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:Velocity-time_graph_example.png",
+descricao:"Apoio para interpretar velocidade, tempo e deslocamento."
+},
+
+{
+topico:"Gravitação Universal",
+titulo:"Newton e a ideia da órbita",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/Newton%27s_cannonball.svg",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:Newton%27s_cannonball.svg",
+descricao:"Ilustração histórica da ideia de queda orbital."
+},
+
+{
+topico:"Equilíbrio",
+titulo:"Torque",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/Torque.JPG",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:Torque.JPG",
+descricao:"Apoio visual para compreender o efeito rotacional de uma força."
+},
+
+{
+topico:"Sistema Internacional",
+titulo:"Unidades de base do SI",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/SI_Illustration_Base_Units_and_Constants_Colour_Full.svg",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:SI_Illustration_Base_Units_and_Constants_Colour_Full.svg",
+descricao:"Visualização das unidades de base do Sistema Internacional."
+},
+
+{
+topico:"Hidrostática",
+titulo:"Princípio de Arquimedes",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/Principio_di_Archimede_galleggiamento.png",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:Principio_di_Archimede_galleggiamento.png",
+descricao:"Apoio para compreender empuxo e flutuação."
+},
+
+{
+topico:"Hidrostática",
+titulo:"Prensa hidráulica",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/Hydraulic_press_image.JPG",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:Hydraulic_press_image.JPG",
+descricao:"Imagem relacionada ao princípio de Pascal."
+},
+
+{
+topico:"Termologia",
+titulo:"Termômetro",
+url:"https://commons.wikimedia.org/wiki/Special:FilePath/Thermometer_(PSF).svg",
+fonte:"Wikimedia Commons",
+link:"https://commons.wikimedia.org/wiki/File:Thermometer_(PSF).svg",
+descricao:"Apoio visual para temperatura e escalas termométricas."
+}
+
+];
+
+
+/* =====================================================
+   RENDERIZA IMAGENS
+===================================================== */
+
+function renderImagens(){
+
+const box=document.getElementById("visualGrid");
+
+box.innerHTML=imagens.map(img=>`
+
+<article class="visual">
+
+<img
+src="${img.url}"
+alt="${img.titulo}"
+loading="lazy"
+onerror="this.style.display='none';"
+>
+
+<span class="badge">
+${img.topico}
+</span>
+
+<h3 style="margin:8px 0 5px">
+${img.titulo}
+</h3>
+
+<div class="small">
+${img.descricao}
+</div>
+
+<div class="fonte">
+
+Fonte:
+<a
+href="${img.link}"
+target="_blank"
+rel="noopener noreferrer">
+
+${img.fonte}
+
+</a>
+
+</div>
+
+</article>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   RENDERIZA QUESTÕES
+===================================================== */
+
+function renderQuestoes(){
+
+let html="";
+let atual="";
+
+questoes.forEach(q=>{
+
+const id=q[0];
+const topico=q[1];
+const nivel=q[2];
+const pergunta=q[3];
+const opcoes=q[4];
+
+if(topico!==atual){
+
+if(atual!==""){
+html+="</div>";
+}
+
+atual=topico;
+
+html+=`
+
+<div class="topico">
+
+<div class="topico-cabecalho">
+
+<h3>
+${topico}
+</h3>
+
+<span class="badge">
+5 questões
+</span>
+
+</div>
+
+`;
+
+}
+
+html+=`
+
+<div
+class="question"
+id="questao${id}">
+
+<div class="question-cabecalho">
+
+<h4>
+${id}. ${pergunta}
+</h4>
+
+<span class="badge">
+${nivel}
+</span>
+
+</div>
+
+<div class="options">
+
+${opcoes.map((op,i)=>`
+
+<label>
+
+<input
+type="radio"
+name="q${id}"
+value="${i}"
+onchange="atualizarProgresso()"
+>
+
+${String.fromCharCode(65+i)})
+${op}
+
+</label>
+
+`).join("")}
+
+</div>
+
+<div
+class="feedback"
+id="feedback${id}">
+</div>
+
+</div>
+
+`;
+
+});
+
+html+="</div>";
+
+document.getElementById("quiz").innerHTML=html;
+
+}
+
+
+/* =====================================================
+   PROGRESSO
+===================================================== */
+
+function atualizarProgresso(){
+
+let respondidas=0;
+
+questoes.forEach(q=>{
+
+if(
+document.querySelector(
+`input[name="q${q[0]}"]:checked`
+)
+){
+
+respondidas++;
+
+}
+
+});
+
+const p=
+Math.round(
+respondidas/questoes.length*100
+);
+
+document.getElementById(
+"respondidas"
+).textContent=
+`${respondidas} de ${questoes.length} respondidas`;
+
+document.getElementById(
+"percentualRespondido"
+).textContent=
+`${p}%`;
+
+document.getElementById(
+"barraProgresso"
+).style.width=
+`${p}%`;
+
+}
+
+
+/* =====================================================
+   GABARITO
+===================================================== */
+
+function renderGabarito(){
+
+document.getElementById("answerKey").innerHTML=
+
+questoes.map(q=>`
+
+<details class="item-gabarito">
+
+<summary>
+
+Questão ${q[0]} —
+${q[1]} —
+Resposta ${String.fromCharCode(65+q[5])}
+
+</summary>
+
+<div class="corpo-gabarito">
+
+<p>
+
+<b>
+Resposta correta:
+</b>
+
+${String.fromCharCode(65+q[5])})
+${q[4][q[5]]}
+
+</p>
+
+<p>
+
+<b>
+Comentário:
+</b>
+
+${q[6]}
+
+</p>
+
+</div>
+
+</details>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   CORREÇÃO
+===================================================== */
+
+function corrigir(){
+
+let acertos=0;
+let respondidas=0;
+
+const desempenho={};
+
+
+questoes.forEach(q=>{
+
+const id=q[0];
+const topico=q[1];
+const correta=q[5];
+
+if(!desempenho[topico]){
+
+desempenho[topico]={
+acertos:0,
+total:0
+};
+
+}
+
+desempenho[topico].total++;
+
+
+const selecionada=
+document.querySelector(
+`input[name="q${id}"]:checked`
+);
+
+
+const bloco=
+document.getElementById(
+`questao${id}`
+);
+
+const feedback=
+document.getElementById(
+`feedback${id}`
+);
+
+
+bloco
+.querySelectorAll("label")
+.forEach((label,i)=>{
+
+label.classList.remove(
+"correct",
+"wrong"
+);
+
+if(i===correta){
+
+label.classList.add(
+"correct"
+);
+
+}
+
+if(
+selecionada &&
+Number(selecionada.value)===i &&
+i!==correta
+){
+
+label.classList.add(
+"wrong"
+);
+
+}
+
+});
+
+
+feedback.style.display="block";
+
+
+if(
+selecionada &&
+Number(selecionada.value)===correta
+){
+
+acertos++;
+respondidas++;
+
+desempenho[topico].acertos++;
+
+feedback.innerHTML=`
+
+<b style="color:var(--verde)">
+✓ Acertou.
+</b>
+
+${q[6]}
+
+`;
+
+}else{
+
+if(selecionada){
+respondidas++;
+}
+
+feedback.innerHTML=`
+
+<b style="color:var(--vermelho)">
+✗ Revise esta questão.
+</b>
+
+${q[6]}
+
+`;
+
+}
+
+});
+
+
+const total=questoes.length;
+
+const erros=total-acertos;
+
+const percentual=
+Math.round(
+acertos/total*100
+);
+
+
+document.getElementById(
+"score"
+).textContent=
+`${acertos}/${total}`;
+
+document.getElementById(
+"percent"
+).textContent=
+`${percentual}%`;
+
+document.getElementById(
+"answered"
+).textContent=
+`${respondidas}/${total}`;
+
+document.getElementById(
+"acertosLegenda"
+).textContent=
+`${acertos} (${percentual}%)`;
+
+document.getElementById(
+"errosLegenda"
+).textContent=
+`${erros} (${100-percentual}%)`;
+
+
+document.getElementById(
+"pizza"
+).style.background=
+
+`conic-gradient(
+var(--verde) 0deg ${percentual*3.6}deg,
+var(--vermelho) ${percentual*3.6}deg 360deg
+)`;
+
+
+mostrarDesempenho(desempenho);
+
+mostrarDiagnostico(
+desempenho,
+percentual
+);
+
+
+/* LIBERA GABARITO */
+
+document.getElementById(
+"bloqueioGabarito"
+).style.display="none";
+
+document.getElementById(
+"answerKey"
+).style.display="block";
+
+
+document.getElementById(
+"resultado"
+).style.display="block";
+
+
+document.getElementById(
+"resultado"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+   DESEMPENHO POR CONTEÚDO
+===================================================== */
+
+function mostrarDesempenho(dados){
+
+let html="";
+
+Object.entries(dados).forEach(([topico,d])=>{
+
+const p=
+Math.round(
+d.acertos/d.total*100
+);
+
+html+=`
+
+<div class="linha-topico">
+
+<div class="linha-topico-cabecalho">
+
+<b>
+${topico}
+</b>
+
+<span>
+${d.acertos}/${d.total}
+—
+${p}%
+</span>
+
+</div>
+
+<div class="barra">
+
+<div
+style="width:${p}%">
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+"desempenhoConteudo"
+).innerHTML=html;
+
+}
+
+
+/* =====================================================
+   DIAGNÓSTICO
+===================================================== */
+
+function mostrarDiagnostico(dados,percentualGeral){
+
+const lista=
+
+Object.entries(dados)
+
+.map(([topico,d])=>({
+
+topico,
+
+percentual:
+Math.round(
+d.acertos/d.total*100
+)
+
+}))
+
+.sort(
+(a,b)=>b.percentual-a.percentual
+);
+
+
+const facil=
+lista.filter(
+x=>x.percentual>=80
+);
+
+const dificuldade=
+lista.filter(
+x=>x.percentual<60
+);
+
+const consolidacao=
+lista.filter(
+x=>x.percentual>=60 &&
+x.percentual<80
+);
+
+
+let html=`
+
+<p>
+
+<b>
+Conteúdos com maior facilidade:
+</b>
+
+${
+facil.length
+?
+facil.map(
+x=>`${x.topico} (${x.percentual}%)`
+).join(", ")
+:
+"nenhum conteúdo atingiu 80% ou mais."
+}
+
+</p>
+
+<p>
+
+<b>
+Conteúdos com maior dificuldade:
+</b>
+
+${
+dificuldade.length
+?
+dificuldade.map(
+x=>`${x.topico} (${x.percentual}%)`
+).join(", ")
+:
+"nenhum conteúdo ficou abaixo de 60%."
+}
+
+</p>
+
+`;
+
+
+if(consolidacao.length){
+
+html+=`
+
+<p>
+
+<b>
+Conteúdos em consolidação:
+</b>
+
+${consolidacao.map(
+x=>`${x.topico} (${x.percentual}%)`
+).join(", ")}
+
+</p>
+
+`;
+
+}
+
+
+const plano={
+
+"Estudo dos Movimentos":
+
+"Revise referencial, posição, distância e deslocamento. Depois pratique velocidade média, aceleração e interpretação de gráficos.",
+
+"Gravitação Universal":
+
+"Revise a lei F = G·m₁·m₂/r², peso P = m·g e a influência da distância na força gravitacional.",
+
+"Equilíbrio":
+
+"Treine força resultante, torque e braço de alavanca. Antes de calcular, identifique o eixo de rotação e as forças envolvidas.",
+
+"Introdução à Hidrostática":
+
+"Reforce densidade, pressão e unidades do SI. Pratique principalmente ρ = m/V, p = F/A e pₕ = ρgh.",
+
+"Hidrostática":
+
+"Priorize Pascal, Arquimedes, empuxo, flutuação e prensa hidráulica. Resolva problemas comparando forças e áreas.",
+
+"Termologia":
+
+"Revise temperatura, kelvin, conversão entre °C e K, energia interna e calor latente."
+};
+
+
+html+=`
+
+<h3>
+Plano de estudo orientado
+</h3>
+
+`;
+
+
+const prioridades=
+
+dificuldade.length
+?
+dificuldade
+:
+consolidacao.length
+?
+consolidacao
+:
+lista.slice(-2);
+
+
+prioridades.forEach(item=>{
+
+html+=`
+
+<div class="estudo">
+
+<b>
+${item.topico}
+—
+${item.percentual}%
+</b>
+
+<br><br>
+
+${plano[item.topico]}
+
+</div>
+
+`;
+
+});
+
+
+if(percentualGeral>=80){
+
+html+=`
+
+<div class="estudo">
+
+<b>
+Próxima etapa:
+</b>
+
+Mantenha a revisão dos conteúdos abaixo de 80%
+e avance para questões de maior complexidade,
+interpretação e aplicação.
+
+</div>
+
+`;
+
+}else if(percentualGeral>=60){
+
+html+=`
+
+<div class="estudo">
+
+<b>
+Próxima etapa:
+</b>
+
+Refaça as questões erradas após revisar os conteúdos
+indicados no diagnóstico.
+
+</div>
+
+`;
+
+}else{
+
+html+=`
+
+<div class="estudo">
+
+<b>
+Próxima etapa:
+</b>
+
+Retome as definições e fórmulas fundamentais antes
+de avançar para exercícios mais complexos.
+Divida o estudo em blocos de 25 a 30 minutos.
+
+</div>
+
+`;
+
+}
+
+
+document.getElementById(
+"diagnostico"
+).innerHTML=html;
+
+}
+
+
+/* =====================================================
+   LIMPAR
+===================================================== */
+
+function limpar(){
+
+document
+.querySelectorAll(
+'input[type="radio"]'
+)
+.forEach(x=>{
+x.checked=false;
+});
+
+
+document
+.querySelectorAll(
+".feedback"
+)
+.forEach(x=>{
+x.style.display="none";
+x.innerHTML="";
+});
+
+
+document
+.querySelectorAll(
+".question label"
+)
+.forEach(x=>{
+x.classList.remove(
+"correct",
+"wrong"
+);
+});
+
+
+document.getElementById(
+"resultado"
+).style.display="none";
+
+
+document.getElementById(
+"answerKey"
+).style.display="none";
+
+
+document.getElementById(
+"bloqueioGabarito"
+).style.display="block";
+
+
+atualizarProgresso();
+
+
+document.getElementById(
+"simulado"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+renderImagens();
+
+renderQuestoes();
+
+renderGabarito();
+
+atualizarProgresso();
+
+</script>
+
+</body>
+</html>
